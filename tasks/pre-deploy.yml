@@ -37,6 +37,7 @@
     container_args: >-
       -e {{overcloud_templates_path}}/environments/docker.yaml
       -e {{overcloud_templates_path}}/environments/docker-network.yaml
+      -e {{ working_dir }}/containers-default-parameters.yaml
   when: containerized_compute
 
 - name: set network_args fact for containers
@@ -45,5 +46,6 @@
       -e {{overcloud_templates_path}}/environments/docker-network-isolation.yaml
       -e {{overcloud_templates_path}}/environments/net-single-nic-with-vlans.yaml
       -e $HOME/network-environment.yaml
+      -e {{ working_dir }}/containers-default-parameters.yaml
   when: network_isolation and containerized_compute
 
