@@ -43,6 +43,7 @@
 - name: set network_args fact for containers
   set_fact:
     network_args: >-
+      -e {{overcloud_templates_path}}/environments/network-isolation.yaml
       -e {{overcloud_templates_path}}/environments/docker-network-isolation.yaml
       -e {{overcloud_templates_path}}/environments/net-single-nic-with-vlans.yaml
       -e $HOME/network-environment.yaml
